@@ -38,6 +38,7 @@ h3 {
 
 .vent-control-active {
     border-color: green;
+    opacity: 1;
 }
 
 .vent-control-active .vent-control__vent-body {
@@ -53,8 +54,5 @@ h3 {
 }
 .dot-active{
     background: #336120;
-    border-radius: 12px;
-    position: absolute;
-    width: 17px;
-    height: 16px;
+
 }
