@@ -1,3 +1,7 @@
+body {
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
 h3 {
     margin: 15px;
     margin-left: 20px;
@@ -42,7 +46,20 @@ h3 {
 }
 
 .vent-control-active .vent-control__vent-body {
+    color: green;
     animation: 2s linear 0s infinite normal none running control_spin;
+}
+
+.vent-control-active .vent-control__name {
+    color: green;
+}
+
+.vent-control__name {
+    font-weight: bold
+}
+
+.vent-control__vent-body {
+    color: grey;
 }
 
 .dot {
@@ -52,7 +69,37 @@ h3 {
     width: 17px;
     height: 16px
 }
-.dot-active{
+
+.dot-active .dot {
     background: #336120;
 
+}
+
+.flame_control {
+    color: grey;
+}
+
+.vent-control-active .flame_control {
+    color: #b67c10;
+}
+
+.vent-control-accident {
+    border-color: red;
+}
+
+.vent-control-accident .vent-control__name {
+    color: #ff0000;
+    animation: 1.5s linear 0s infinite normal none running vent_control_accident;
+}
+
+@keyframes vent_control_accident {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
