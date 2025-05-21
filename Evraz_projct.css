@@ -70,7 +70,7 @@ h3 {
     height: 16px
 }
 
-.dot-active .dot {
+.dot-active.dot {
     background: #336120;
 
 }
@@ -102,4 +102,16 @@ h3 {
     to {
         opacity: 1;
     }
+}
+.dot.dot-accident{
+    background: #ff0000;
+}
+.svg-active.svg{
+    color: green;
+}
+.svg{
+color: #363C49;
+}
+.svg-accident.svg{
+    color: red;
 }

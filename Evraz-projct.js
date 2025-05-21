@@ -1,9 +1,14 @@
-function activateVent(id, dotId ){
+function activateVent(id, dotId,svgId ){
     document.getElementById(id).classList.add('vent-control-active')
-    document.getElementById(dotid).classList.add('dot_active')
+    document.getElementById(dotId).classList.add('dot-active')
+    document.getElementById(svgId).classList.add('svg-active')
     document.getElementById(id).classList.remove('vent-control-accident')
 }
-
-
-activateVent('П1')
-activateVent('П3')
+function accident(id, dotId,svgId ){
+    document.getElementById(id).classList.add('vent-control-accident')
+    document.getElementById(dotId).classList.add('dot-accident')
+    document.getElementById(svgId).classList.add('svg-accident')
+    document.getElementById(id).classList.remove('vent-control-active')
+}
+activateVent('П1',"dot1","svg1")
+accident('П3','dot3','svg3')
