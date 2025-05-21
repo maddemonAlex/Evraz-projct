@@ -115,3 +115,13 @@ color: #363C49;
 .svg-accident.svg{
     color: red;
 }
+.vent-control-service .vent-control__name {
+    color: #ffec00;
+    animation: 1.5s linear 0s infinite normal none running vent_control_accident;
+}
+.svg-service.svg{
+    color: #ffec00;
+}
+.dot.dot-service{
+    background: #ffec00;
+}
