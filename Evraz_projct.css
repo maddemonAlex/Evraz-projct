@@ -79,7 +79,7 @@ h3 {
     color: grey;
 }
 
-.vent-control-active .flame_control {
+.flame_control_active {
     color: #b67c10;
 }
 
@@ -103,25 +103,39 @@ h3 {
         opacity: 1;
     }
 }
-.dot.dot-accident{
+
+.dot.dot-accident {
     background: #ff0000;
 }
-.svg-active.svg{
+
+.svg-active.svg {
     color: green;
 }
-.svg{
-color: #363C49;
+
+.svg {
+    color: #363C49;
 }
-.svg-accident.svg{
+
+.svg-accident.svg {
     color: red;
 }
+
 .vent-control-service .vent-control__name {
     color: #ffec00;
     animation: 1.5s linear 0s infinite normal none running vent_control_accident;
 }
-.svg-service.svg{
+
+.svg-service.svg {
     color: #ffec00;
 }
-.dot.dot-service{
+
+.dot.dot-service {
     background: #ffec00;
+}
+
+.vent-control-service {
+    border-color: #ffec00;
+}
+.temp-control{
+    color: #b67c10;
 }
