@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="150" id="svgOutdoorWall">
+     <defs>
+       <pattern id="bricks" patternTransform="translate(0,0) scale(2,2)" height="10" width="9" patternUnits="userSpaceOnUse">
+       	  <g>
+       	  <rect id="brick1" height="4" width="4" y="0" x="0" style="fill: rgb(54, 60, 73); stroke: none;"/>
+       	  <rect id="brick2" height="4" width="4" y="0" x="5" style="fill: rgb(54, 60, 73); stroke: none;"/>
+       	  <rect id="brick3" height="4" width="8" y="5" x="0" style="fill: rgb(54, 60, 73); stroke: none;" rand="0.7364426484930061"/>
+       	  </g>
+       </pattern>
+     </defs>
+
+   	<rect style="opacity: 1; fill: rgb(21, 26, 35);" id="cementBack" width="25" height="150" x="0" y="0"/>
+     <rect style="opacity:1;fill:url(#bricks)" id="wall" width="25" height="150" x="0" y="0"/>
+</svg>

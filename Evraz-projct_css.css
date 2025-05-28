@@ -1,0 +1,15 @@
+.menu svg {
+    width: 16px;
+    height: 16px;
+}
+
+.menu svg path {
+    fill: #33eeff;
+}
+.menu img {
+    fill: #33eeff;
+}
+.vent {
+    width: 100px;
+    height: 100px;
+}
