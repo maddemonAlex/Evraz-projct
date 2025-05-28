@@ -30,7 +30,7 @@ function moveTo(targetNumber, time, id, dotId) {
 
     function gMoneyU1() {
         if (delta > 0) {
-        document.getElementById(dotId).classList.add('flame-control-active')
+        document.getElementById(dotId).classList.add('flame_control_active')
         document.getElementById(dotId).classList.remove('flame_control')
     }
         curentTemp += (delta / time);
@@ -38,7 +38,7 @@ function moveTo(targetNumber, time, id, dotId) {
             curentTemp = targetNumber;
             console.log(9999)
             document.getElementById(dotId).classList.add('flame_control')
-            document.getElementById(dotId).classList.remove('flame_control-active')
+            document.getElementById(dotId).classList.remove('flame_control_active')
             clearInterval(interval)
         }
         if (delta < 0 && curentTemp <= targetNumber) {
@@ -50,8 +50,7 @@ function moveTo(targetNumber, time, id, dotId) {
     }
 }
 
-moveTo(30, 100, 'temp3', 'flame3')
 
-activateVent('П1', "dot1", "svg1")
-accident('П3', 'dot3', 'svg3')
-service("П2", 'dot2', 'svg2')
+
+
+
