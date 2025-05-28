@@ -1,0 +1,141 @@
+body {
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+h3 {
+    margin: 15px;
+    margin-left: 20px;
+}
+
+.Pict1 {
+    margin: 15px;
+}
+
+.Cont {
+    margin-left: 5px;
+}
+
+@keyframes control_spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.svg1 {
+    background: linear-gradient(blue, pink);
+
+}
+
+.vent-control {
+    position: absolute;
+
+    width: 41px;
+    transform: rotate(-8deg);
+    border: solid rgba(17, 91, 122, 0.35) 3px;
+    border-radius: 6px;
+    opacity: 0.6;
+}
+
+.vent-control-active {
+    border-color: green;
+    opacity: 1;
+}
+
+.vent-control-active .vent-control__vent-body {
+    color: green;
+    animation: 2s linear 0s infinite normal none running control_spin;
+}
+
+.vent-control-active .vent-control__name {
+    color: green;
+}
+
+.vent-control__name {
+    font-weight: bold
+}
+
+.vent-control__vent-body {
+    color: grey;
+}
+
+.dot {
+    background: #363C49;
+    border-radius: 12px;
+    position: absolute;
+    width: 17px;
+    height: 16px
+}
+
+.dot-active.dot {
+    background: #336120;
+
+}
+
+.flame_control {
+    color: grey;
+}
+
+.flame_control_active {
+    color: #b67c10;
+}
+
+.vent-control-accident {
+    border-color: red;
+}
+
+.vent-control-accident .vent-control__name {
+    color: #ff0000;
+    animation: 1.5s linear 0s infinite normal none running vent_control_accident;
+}
+
+@keyframes vent_control_accident {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dot.dot-accident {
+    background: #ff0000;
+}
+
+.svg-active.svg {
+    color: green;
+}
+
+.svg {
+    color: #363C49;
+}
+
+.svg-accident.svg {
+    color: red;
+}
+
+.vent-control-service .vent-control__name {
+    color: #ffec00;
+    animation: 1.5s linear 0s infinite normal none running vent_control_accident;
+}
+
+.svg-service.svg {
+    color: #ffec00;
+}
+
+.dot.dot-service {
+    background: #ffec00;
+}
+
+.vent-control-service {
+    border-color: #ffec00;
+}
+.temp-control{
+    color: #b67c10;
+}
