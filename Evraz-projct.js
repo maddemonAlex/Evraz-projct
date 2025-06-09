@@ -1,3 +1,34 @@
+let rooms = {
+    room1: {
+        status: 'off',
+        service: 'off',
+    },
+    room3: {
+        status: 'off',
+        service: 'off',
+    },
+};
+
+function power(roomName) {
+    let room = rooms[roomName];
+    let menuDiv = document.getElementById(`${ roomName }-menu`);
+    let serviceDiv = document.getElementById(`${ roomName }-service`);
+    let roomDiv = document.getElementById(roomName);
+
+    if (room.status === 'off') {
+        menuDiv.classList.add('power');
+        roomDiv.src = `images/img/${ roomName }_pipe_on 1.png`;
+        serviceDiv.innerText = 'Работа';
+        room.status = 'on';
+    }
+    else {
+        menuDiv.classList.remove('power');
+        serviceDiv.innerText = 'Онлайн';
+        roomDiv.src = `images/img/${ roomName }_pipe_off 1.png`;
+        room.status = 'off';
+    }
+}
+
 function activateVent(id, dotId, svgId, temp) {
     document.getElementById(id).classList.add('vent-control-active')
     document.getElementById(dotId).classList.add('dot-active')
@@ -50,7 +81,19 @@ function moveTo(targetNumber, time, id, dotId) {
     }
 }
 
+function roomService(roomName) {
+    let room = rooms[roomName];
+    let menuDiv = document.getElementById(`${ roomName }-menu`);
+    let serviceDiv = document.getElementById(`${ roomName }-service`);
 
-
-
-
+    if (room.service === 'off') {
+        menuDiv.classList.add('service');
+        serviceDiv.innerText = 'Сервис';
+        room.service = 'on';
+    }
+    else {
+        menuDiv.classList.remove('service');
+        serviceDiv.innerText = 'Онлайн';
+        room.service = 'off';
+    }
+}
