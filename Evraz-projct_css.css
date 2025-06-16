@@ -63,6 +63,18 @@
     fill: #ae52eb;
 }
 
+.menu.accident {
+    color: red;
+}
+
+.menu.accident .room-service {
+    background: red;
+}
+
+.menu.accident img {
+    color: red;
+}
+
 .vent {
     width: 100px;
     height: 100px;

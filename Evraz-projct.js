@@ -2,11 +2,24 @@ let rooms = {
     room1: {
         status: 'off',
         service: 'off',
+        accident: 'off',
+    },
+    room2: {
+        status: 'off',
+        service: 'off',
+        accident: 'off',
     },
     room3: {
         status: 'off',
         service: 'off',
+        accident: 'off',
     },
+};
+
+let temps = {
+    room1: 'temp2',
+    room2: 'temp3',
+    room3: 'temp1',
 };
 
 function power(roomName) {
@@ -85,11 +98,24 @@ function roomService(roomName) {
     let room = rooms[roomName];
     let menuDiv = document.getElementById(`${ roomName }-menu`);
     let serviceDiv = document.getElementById(`${ roomName }-service`);
+    let roomDiv = document.getElementById(roomName);
 
     if (room.service === 'off') {
         menuDiv.classList.add('service');
+        menuDiv.classList.remove('accident');
         serviceDiv.innerText = 'Сервис';
         room.service = 'on';
+
+        if (room.status === 'on') {
+            roomDiv.src = `images/${ roomName }_pipe_on.png`;
+        }
+        else {
+            roomDiv.src = `images/${ roomName }_pipe_off.png`;
+        }
+
+        if (room.accident === 'on') {
+            roomAccident(roomName);
+        }
     }
     else {
         menuDiv.classList.remove('service');
@@ -106,6 +132,7 @@ function increaseTemp(roomName) {
     const currentTempDiv = document.getElementById(`${ roomName }-temp`);
     const airTempDiv = document.getElementById(`${ roomName }-air-temp`);
     const roomTempDiv = document.getElementById(`${ roomName }-room-temp`);
+    const roomOnPlanDiv = document.getElementById(`${ temps[roomName] }`);
 
     let airTemp = +airTempDiv.innerText.split('°')[0];
     let roomTemp = +roomTempDiv.innerText.split('°')[0];
@@ -126,6 +153,7 @@ function increaseTemp(roomName) {
         if (roomTemp < newTemp) {
             roomTemp += 1;
             roomTempDiv.innerText = roomTemp.toFixed(1) + '°';
+            roomOnPlanDiv.innerText = roomTemp.toFixed(1);
         }
         else {
             clearInterval(roomTempInterval);
@@ -143,6 +171,7 @@ function decreaseTemp(roomName) {
     const currentTempDiv = document.getElementById(`${ roomName }-temp`);
     const airTempDiv = document.getElementById(`${ roomName }-air-temp`);
     const roomTempDiv = document.getElementById(`${ roomName }-room-temp`);
+    const roomOnPlanDiv = document.getElementById(`${ temps[roomName] }`);
 
     let airTemp = +airTempDiv.innerText.split('°')[0];
     let roomTemp = +roomTempDiv.innerText.split('°')[0];
@@ -163,6 +192,7 @@ function decreaseTemp(roomName) {
         if (roomTemp > newTemp) {
             roomTemp -= 1;
             roomTempDiv.innerText = roomTemp.toFixed(1) + '°';
+            roomOnPlanDiv.innerText = roomTemp.toFixed(1);
         }
         else {
             clearInterval(roomTempInterval);
@@ -172,3 +202,25 @@ function decreaseTemp(roomName) {
     currentTempDiv.innerText = newTemp + '°';
 }
 
+function roomAccident(roomName) {
+    let room = rooms[roomName];
+    if (room.service === 'on') {
+        return;
+    }
+    let menuDiv = document.getElementById(`${ roomName }-menu`);
+    let serviceDiv = document.getElementById(`${ roomName }-service`);
+    let roomDiv = document.getElementById(roomName);
+
+    if (room.accident === 'off') {
+        menuDiv.classList.add('accident');
+        roomDiv.src = `images/${ roomName }_pipe_on.png`;
+        serviceDiv.innerText = 'Авария';
+        room.accident = 'on';
+    }
+    else {
+        menuDiv.classList.remove('accident');
+        roomDiv.src = `images/${ roomName }_pipe_off.png`;
+        serviceDiv.innerText = 'Сервис';
+        room.accident = 'off';
+    }
+}
