@@ -17,14 +17,14 @@ function power(roomName) {
 
     if (room.status === 'off') {
         menuDiv.classList.add('power');
-        roomDiv.src = `images/img/${ roomName }_pipe_on 1.png`;
+        roomDiv.src = `images/${ roomName }_pipe_on.png`;
         serviceDiv.innerText = 'Работа';
         room.status = 'on';
     }
     else {
         menuDiv.classList.remove('power');
         serviceDiv.innerText = 'Онлайн';
-        roomDiv.src = `images/img/${ roomName }_pipe_off 1.png`;
+        roomDiv.src = `images/${ roomName }_pipe_off.png`;
         room.status = 'off';
     }
 }
@@ -97,3 +97,78 @@ function roomService(roomName) {
         room.service = 'off';
     }
 }
+
+function increaseTemp(roomName) {
+    let room = rooms[roomName];
+    if (room.status === 'off') {
+        return;
+    }
+    const currentTempDiv = document.getElementById(`${ roomName }-temp`);
+    const airTempDiv = document.getElementById(`${ roomName }-air-temp`);
+    const roomTempDiv = document.getElementById(`${ roomName }-room-temp`);
+
+    let airTemp = +airTempDiv.innerText.split('°')[0];
+    let roomTemp = +roomTempDiv.innerText.split('°')[0];
+    const currentTemp = +currentTempDiv.innerText.split('°')[0];
+    const newTemp = +currentTemp + 1;
+
+    const airTempInterval = setInterval(() => {
+        if (airTemp < newTemp) {
+            airTemp += 1;
+            airTempDiv.innerText = airTemp.toFixed(1) + '°';
+        }
+        else {
+            clearInterval(airTempInterval);
+        }
+    }, 3000);
+
+    const roomTempInterval = setInterval(() => {
+        if (roomTemp < newTemp) {
+            roomTemp += 1;
+            roomTempDiv.innerText = roomTemp.toFixed(1) + '°';
+        }
+        else {
+            clearInterval(roomTempInterval);
+        }
+    }, 4000);
+
+    currentTempDiv.innerText = newTemp + '°';
+}
+
+function decreaseTemp(roomName) {
+    let room = rooms[roomName];
+    if (room.status === 'off') {
+        return;
+    }
+    const currentTempDiv = document.getElementById(`${ roomName }-temp`);
+    const airTempDiv = document.getElementById(`${ roomName }-air-temp`);
+    const roomTempDiv = document.getElementById(`${ roomName }-room-temp`);
+
+    let airTemp = +airTempDiv.innerText.split('°')[0];
+    let roomTemp = +roomTempDiv.innerText.split('°')[0];
+    const currentTemp = +currentTempDiv.innerText.split('°')[0];
+    const newTemp = +currentTemp - 1;
+
+    const airTempInterval = setInterval(() => {
+        if (airTemp > newTemp) {
+            airTemp -= 1;
+            airTempDiv.innerText = airTemp.toFixed(1) + '°';
+        }
+        else {
+            clearInterval(airTempInterval);
+        }
+    }, 3000);
+
+    const roomTempInterval = setInterval(() => {
+        if (roomTemp > newTemp) {
+            roomTemp -= 1;
+            roomTempDiv.innerText = roomTemp.toFixed(1) + '°';
+        }
+        else {
+            clearInterval(roomTempInterval);
+        }
+    }, 4000);
+
+    currentTempDiv.innerText = newTemp + '°';
+}
+
